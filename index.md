@@ -73,3 +73,4 @@ to be shared can and should be stored in a version control system.
 *   [Reference](reference.html)
 *   [Discussion](discussion.html)
 *   [Instructor's Guide](instructors.html)
+*   [Try Git](https://try.github.io/levels/1/challenges/1)
