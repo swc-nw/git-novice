@@ -83,14 +83,22 @@ $ <span class="kw">git</span> config --global color.ui <span class="st">&quot;au
 </tr>
 </tbody>
 </table>
+<p>Another set of optional but useful settings provides shortcut aliases:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global alias.st status 
+<span class="kw">git</span> config --global alias.ci commit 
+<span class="kw">git</span> config --global alias.co checkout 
+<span class="kw">git</span> config --global alias.hist <span class="st">&#39;log --graph --decorate --pretty=oneline --abbrev-commit&#39;</span>
+<span class="kw">git</span> config --global alias.ls <span class="st">&#39;log --pretty=format:&quot;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset&quot; --abbrev-commit&#39;</span>
+<span class="kw">git</span> config --global alias.ll <span class="st">&#39;log --pretty=format:&quot;%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]&quot; --decorate --numstat&#39;</span></code></pre>
 <p>Git commands are written <code>git verb</code>, where <code>verb</code> is what we actually want it to do. In this case, we’re telling Git:</p>
 <ul>
 <li>our name and email address,</li>
 <li>to colorize output,</li>
-<li>what our favorite text editor is, and</li>
+<li>what our favorite text editor is,</li>
+<li>which alias’ed commands we want to use, and</li>
 <li>that we want to use these settings globally (i.e., for every project),</li>
 </ul>
-<p>The four commands above only need to be run once: the flag <code>--global</code> tells Git to use the settings for every project on this computer.</p>
+<p>The few commands above only need to be run once: the flag <code>--global</code> tells Git to use the settings for every project, in your user account, on this computer.</p>
 <p>You can check your settings at any time:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> config --list</code></pre>
 <p>You can change your configuration as many times as you want: just use the same commands to choose another editor or update your email address.</p>

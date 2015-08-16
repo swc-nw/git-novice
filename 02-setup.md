@@ -33,6 +33,16 @@ He also has to set his favorite text editor, following this table:
 | Kate (Linux)       | `$ git config --global core.editor "kate"`       |
 | Gedit (Linux)      | `$ git config --global core.editor "gedit -s"`   |
 
+Another set of optional but useful settings provides shortcut aliases:
+
+~~~ {.bash}
+git config --global alias.st status 
+git config --global alias.ci commit 
+git config --global alias.co checkout 
+git config --global alias.hist 'log --graph --decorate --pretty=oneline --abbrev-commit'
+git config --global alias.ls 'log --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset" --abbrev-commit'
+git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'
+~~~
 
 Git commands are written `git verb`,
 where `verb` is what we actually want it to do.
@@ -41,10 +51,11 @@ we're telling Git:
 
 *   our name and email address,
 *   to colorize output,
-*   what our favorite text editor is, and
+*   what our favorite text editor is,
+*   which alias'ed commands we want to use, and
 *   that we want to use these settings globally (i.e., for every project),
 
-The four commands above only need to be run once: the flag `--global` tells Git
+The few commands above only need to be run once: the flag `--global` tells Git
 to use the settings for every project, in your user account, on this computer.
 
 You can check your settings at any time:
