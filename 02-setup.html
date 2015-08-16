@@ -90,6 +90,14 @@ $ <span class="kw">git</span> config --global color.ui <span class="st">&quot;au
 <span class="kw">git</span> config --global alias.hist <span class="st">&#39;log --graph --decorate --pretty=oneline --abbrev-commit&#39;</span>
 <span class="kw">git</span> config --global alias.ls <span class="st">&#39;log --pretty=format:&quot;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset&quot; --abbrev-commit&#39;</span>
 <span class="kw">git</span> config --global alias.ll <span class="st">&#39;log --pretty=format:&quot;%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]&quot; --decorate --numstat&#39;</span></code></pre>
+<p>Lastly, the bash prompt can be modified by using a helper function best called from <code>~/.bashrc</code>:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Set the prompt to show the current git branch:</span>
+<span class="kw">function</span><span class="fu"> parse_git_branch</span> <span class="kw">{</span>
+    <span class="ot">ref=$(</span><span class="kw">git</span> symbolic-ref HEAD <span class="kw">2&gt;</span> /dev/null<span class="ot">)</span> <span class="kw">||</span> <span class="kw">return</span>
+    <span class="kw">echo</span> <span class="st">&quot;(&quot;</span><span class="ot">${ref#</span>refs/heads/<span class="ot">}</span><span class="st">&quot;)&quot;</span>
+<span class="kw">}</span>
+<span class="ot">PS1=</span><span class="st">&quot;\u@\h:\w</span><span class="dt">\$</span><span class="st">(parse_git_branch)</span><span class="dt">\$</span><span class="st"> &quot;</span></code></pre>
+<p>The <code>gitbash</code> Windows installer already has this set.</p>
 <p>Git commands are written <code>git verb</code>, where <code>verb</code> is what we actually want it to do. In this case, we’re telling Git:</p>
 <ul>
 <li>our name and email address,</li>

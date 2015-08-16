@@ -44,6 +44,21 @@ git config --global alias.ls 'log --pretty=format:"%Cred%h%Creset -%C(yellow)%d%
 git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --numstat'
 ~~~
 
+Lastly, the bash prompt can be modified by using a helper function best
+called from `~/.bashrc`:
+
+~~~ {.bash}
+# Set the prompt to show the current git branch:
+function parse_git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    echo "("${ref#refs/heads/}")"
+}
+PS1="\u@\h:\w\$(parse_git_branch)\$ "
+~~~
+
+The `gitbash` Windows installer already has this set.
+
+
 Git commands are written `git verb`,
 where `verb` is what we actually want it to do.
 In this case,
